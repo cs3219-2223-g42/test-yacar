@@ -123,7 +123,7 @@ jobs:
     if: |
       needs.validate.result == 'success' && 
       (needs.format.result == 'skipped' || needs.format.result == 'success') &&
-      ${{ github.event.pull_request.user.login }} == ${{ secrets.MERGE_ACCOUNT }}
+      ${{ github.event.pull_request.user.login }} == 'cs3219-2223-g42'
     steps:
       - name: automerge
         uses: pascalgn/automerge-action@v0.15.5
