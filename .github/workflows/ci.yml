@@ -122,12 +122,13 @@ jobs:
     needs: [validate, format]
     if: |
       needs.validate.result == 'success' && 
-      (needs.format.result == 'skipped' || needs.format.result == 'success')
+      (needs.format.result == 'skipped' || needs.format.result == 'success') &&
+      ${{ github.event.pull_request.user.login }} == ${{ secrets.MERGE_ACCOUNT }}
     steps:
       - name: automerge
         uses: pascalgn/automerge-action@v0.15.5
         env:
-          GITHUB_TOKEN: "${{ secrets.MERGE_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.MERGE_TOKEN_CLASSIC }}"
           MERGE_LABELS: "status: done"
           MERGE_METHOD: "squash"
           UPDATE_METHOD: "rebase"
