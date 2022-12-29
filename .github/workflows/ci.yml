@@ -130,4 +130,3 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.MERGE_TOKEN_CLASSIC }}"
           MERGE_LABELS: "status: done"
           MERGE_METHOD: "squash"
-          UPDATE_METHOD: "rebase"
